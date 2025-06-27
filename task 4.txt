@@ -1,0 +1,25 @@
+| id | region | salesperson | amount |
+| -- | ------ | ----------- | ------ |
+| 1  | North  | Alice       | 1200   |
+| 2  | South  | Bob         | 1500   |
+| 3  | North  | Alice       | 1800   |
+| 4  | East   | Charlie     | 1300   |
+| 5  | South  | Bob         | 1700   |
+
+
+SELECT region, SUM(amount) AS total_sales
+FROM sales
+GROUP BY region;
+
+SELECT salesperson, AVG(amount) AS average_sales
+FROM sales
+GROUP BY salesperson;
+
+SELECT region, COUNT(*) AS num_transactions
+FROM sales
+GROUP BY region;
+
+SELECT region, SUM(amount) AS total_sales
+FROM sales
+GROUP BY region
+HAVING SUM(amount) > 2500;
